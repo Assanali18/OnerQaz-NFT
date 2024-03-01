@@ -6,7 +6,7 @@ if(!localStorage.getItem("balance")){
   balance = localStorage.getItem("balance");
 }
 
-localStorage.setItem("balance", balance);
+localStorage.setItem("balance", parseFloat(balance).toFixed(2));
 
 
 const cartBlock = document.querySelector(".cart-block");
@@ -41,11 +41,12 @@ if(localStorage.getItem("sold")){
     })
 }
 
-document.querySelector(".allPrice").innerHTML = sum.toFixed(2) + " ETH";
+document.querySelector(".allPrice").innerHTML = sum.toFixed(2);
 
 
-const balanceValue = document.querySelector(".balance span");
-balanceValue.innerHTML = balance;
+const balanceValue = document.querySelectorAll(".balance span");
+balanceValue[0].innerHTML = balance;
+balanceValue[1].innerHTML = balance;
 
 const avatarCircle = document.querySelector(".avatar__circle");
 let avatarColor = document.createElement("img");
